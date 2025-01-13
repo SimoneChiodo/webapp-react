@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Bootstrap CSS
-import "bootstrap/dist/css/bootstrap.min.css";
+// Components
+import DefaultLayout from "./layouts/DefaultLayout";
+import HomePage from "./pages/HomePage";
+import DetailsPage from "./pages/DetailsPage";
 
 //Custom CSS
-import "./App.css";
-
-// Bootstrap JS
-// import * as bootstrap from "bootstrap";
+import "./assets/App.css";
 
 function App() {
-    return <></>;
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route element={<DefaultLayout />} path="/">
+                        <Route index element={<HomePage />}></Route>
+                        <Route path="details" element={<DetailsPage />}></Route>
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </>
+    );
 }
 
 export default App;
