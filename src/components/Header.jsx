@@ -30,7 +30,7 @@ export default function Header() {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/details">
+                            <Link className="nav-link" to="/details/1">
                                 Details
                             </Link>
                         </li>
