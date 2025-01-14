@@ -78,7 +78,7 @@ export default function DetailsPage() {
                 <>
                     <h2 key={`riview-title`}>Reviews:</h2>
 
-                    <div class="row row-cols-1 row-cols-md-2 g-3 mb-5">
+                    <div className="row row-cols-1 row-cols-md-2 g-3 mb-5">
                         {movie.reviews.map((review, index) => (
                             <div className="col">
                                 <div
