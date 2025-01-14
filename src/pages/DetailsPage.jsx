@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // Components
 import MovieReviews from "../components/MovieReviews";
@@ -11,10 +11,14 @@ import "../assets/DetailsPage.css";
 export default function DetailsPage() {
     const [movie, setMovie] = useState([]);
     const id = useParams().id;
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(import.meta.env.VITE_BACKEND_URL + "/" + id)
-            .then((res) => res.json())
+            .then((res) => {
+                if (res.status === 404) navigate("/not-found");
+                return res.json();
+            })
             .then((data) => {
                 setMovie(data);
             });
