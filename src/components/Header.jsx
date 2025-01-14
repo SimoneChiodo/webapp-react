@@ -1,13 +1,29 @@
 import { Link } from "react-router-dom";
 
+// Custom CSS
+import "../assets/Header.css";
+
 export default function Header() {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
-                <Link className="navbar-brand" to="/">
-                    React Movies
+            <div className="container-fluid d-flex justify-content-center">
+                <Link className="navbar-brand d-flex align-items-center" to="/">
+                    <img
+                        className="header-popcorn"
+                        src="/pop-corn.png"
+                        alt="pop-corn"
+                        draggable="false"
+                    />
+                    <h1>&nbsp;&nbsp; Movies! &nbsp;&nbsp;</h1>
+                    <img
+                        className="header-popcorn"
+                        src="/pop-corn.png"
+                        alt="pop-corn"
+                        draggable="false"
+                    />
                 </Link>
-                <button
+
+                {/* <button
                     className="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
@@ -35,7 +51,7 @@ export default function Header() {
                             </Link>
                         </li>
                     </ul>
-                </div>
+                </div> */}
             </div>
         </nav>
     );
