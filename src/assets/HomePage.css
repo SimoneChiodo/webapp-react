@@ -1,6 +1,4 @@
-.movie-card a {
-}
-
 .movie-card .movie-cover {
     width: 90%;
+    aspect-ratio: 9/13;
 }

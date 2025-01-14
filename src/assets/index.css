@@ -8,3 +8,8 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+/* UTILITIES */
+.h-90 {
+    height: 92%;
+}
