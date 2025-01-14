@@ -13,15 +13,38 @@ export default function DetailsPage() {
     const id = useParams().id;
     const navigate = useNavigate();
 
+    // At start
     useEffect(() => {
-        fetch(import.meta.env.VITE_BACKEND_URL + "/" + id)
-            .then((res) => {
-                if (res.status === 404) navigate("/not-found");
-                return res.json();
-            })
-            .then((data) => {
-                setMovie(data);
-            });
+        // Execute async fetch to check respond value
+        const fetchData = async () => {
+            // Try the fetch
+            try {
+                const response = await fetch(
+                    `${import.meta.env.VITE_BACKEND_URL}/${id}`
+                );
+
+                // Status 200 OK
+                if (response.status === 200) {
+                    const data = await response.json();
+                    setMovie(data);
+                }
+                // Status 404 NOT-FOUND
+                else if (response.status === 404) {
+                    navigate("/details/not-found");
+                }
+                // Other cases (send to catch)
+                else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+            } catch (error) {
+                //If the fetch fail, send to error page
+                console.error("Errore nella richiesta:", error);
+                navigate("/error");
+            }
+        };
+
+        // Call the async function
+        fetchData();
     }, []);
 
     return (

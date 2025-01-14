@@ -1,18 +1,41 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Custom CSS
 import "../assets/HomePage.css";
 
 export default function HomePage() {
     const [movies, setMovies] = useState([]);
+    const navigate = useNavigate();
 
+    // At start
     useEffect(() => {
-        fetch("http://localhost:3000/")
-            .then((res) => res.json())
-            .then((data) => {
-                setMovies(data);
-            });
+        // Execute async fetch to check respond value
+        const fetchData = async () => {
+            // Try the fetch
+            try {
+                const response = await fetch(
+                    `${import.meta.env.VITE_BACKEND_URL}`
+                );
+
+                // Status 200 OK
+                if (response.status === 200) {
+                    const data = await response.json();
+                    setMovies(data);
+                }
+                // Other cases (send to catch)
+                else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+            } catch (error) {
+                //If the fetch fail, send to error page
+                console.error("Errore nella richiesta:", error);
+                navigate("/error");
+            }
+        };
+
+        // Call the async function
+        fetchData();
     }, []);
 
     return (

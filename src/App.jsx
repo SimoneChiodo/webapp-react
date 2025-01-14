@@ -5,6 +5,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import HomePage from "./pages/HomePage";
 import DetailsPage from "./pages/DetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import OfflineServerPage from "./pages/OfflineServerPage";
 
 //Custom CSS
 import "./assets/App.css";
@@ -21,8 +22,12 @@ function App() {
                             element={<DetailsPage />}
                         ></Route>
                         <Route
-                            path="not-found"
+                            path="details/not-found"
                             element={<NotFoundPage />}
+                        ></Route>
+                        <Route
+                            path="/error"
+                            element={<OfflineServerPage />}
                         ></Route>
                     </Route>
                 </Routes>
