@@ -1,3 +1,82 @@
+:root {
+    --movie-card-left-width: 40%;
+}
+
+/***************
+Section: Title 
+***************/
+.side-title {
+    font-size: 2.4rem;
+}
+
+/*************** 
+Section: Movie Card 
+***************/
+.movie-card-popcorn {
+    width: 100px;
+    bottom: 5%;
+    left: 4%;
+}
+.movie-card-popcorn:hover {
+    animation: vibrate 0.3s linear 1;
+}
+
+/* LEFT SIDE */
+.movie-card-left {
+    padding: 1rem !important;
+}
+
+.details-card-left {
+    width: var(--movie-card-left-width);
+}
+.details-card-right {
+    width: calc(100% - var(--movie-card-left-width));
+}
+
+li > b {
+    font-size: 1.25rem;
+}
+li:first-child > b {
+    font-size: 1.4rem;
+}
+
+li > p {
+    font-size: 1.13rem;
+}
+
+/* RIGHT SIDE */
 .movie-card-right > img {
-    max-width: 430px;
+    max-width: 330px;
+}
+
+/*************** 
+Section: Reviews 
+***************/
+.profile-picture {
+    width: 45px;
+}
+
+/*************** 
+Animations 
+***************/
+/* Pop-Corn Vibration */
+@keyframes vibrate {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(-2px, -2px);
+    }
+    80% {
+        transform: translate(2px, 2px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
 }
