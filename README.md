@@ -1,5 +1,7 @@
 # Progetto React + Backend Express: Web App per la gestione di film e recensioni
 
+### Nome repository backend: webapp-express
+
 ## Descrizione 
 
 Il progetto consiste nello sviluppo di una web app moderna che permette di visualizzare una lista di film, consultare i dettagli di ciascun film con le relative recensioni, e aggiungere nuove recensioni tramite un form dedicato.
